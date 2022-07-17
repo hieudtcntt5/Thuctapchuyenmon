@@ -1,0 +1,58 @@
+{% extends 'homepage/index.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="">
+                <div class="card mt-3 shadow">
+                    <div class="card-body">
+                        <form action="#" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="col-form-label">Your Name</label>
+                                {{form.username}}
+                                {% if form.errors.username %}
+                                    <label class='text-danger'>{{form.errors.username}}</label>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label">Email</label>
+                                {{form.email}}
+                                {% if form.errors.email %}
+                                    <label class='text-danger'>{{form.errors.email}}</label>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label">Password</label>
+                                {{form.password1}}
+                                {% if form.errors.password1 %}
+                                    <label class='text-danger'>{{form.errors.password1}}</label>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label">Confirm Password</label>
+                                {{form.password2}}
+                                {% if form.errors.password2 %}
+                                    <label class='text-danger'>{{form.errors.password2}}</label>
+                                {% endif %}
+                            </div>
+                            <div class="right-w3l">
+                                <input type="submit" class="form-control" value="Register">
+                            </div>
+                            <div class="sub-w3l">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input" id="customControlAutosizing2">
+                                    <label class="custom-control-label" for="customControlAutosizing2">I Accept to the Terms & Conditions</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
